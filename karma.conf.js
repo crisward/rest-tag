@@ -1,7 +1,7 @@
 module.exports = function (config) {
   'use strict';
   var saucelabsBrowsers = require('./browsers').browsers
-  var browsers = ['PhantomJS']
+  var browsers = ['Chrome']
   if (process.env.SAUCE_USERNAME) {
     browsers = Object.keys(saucelabsBrowsers)
   }
@@ -41,7 +41,7 @@ module.exports = function (config) {
     sauceLabs: {
       build: 'TRAVIS #' + process.env.TRAVIS_BUILD_NUMBER + ' (' + process.env.TRAVIS_BUILD_ID + ')',
       tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER,
-      testName: 'riot-grid',
+      testName: 'rest-tag',
       connectOptions: {
         port: 5757,
         logfile: 'sauce_connect.log'
