@@ -1,7 +1,7 @@
 module.exports = function (config) {
   'use strict';
   var saucelabsBrowsers = require('./browsers').browsers
-  var browsers = ['Chrome']
+  var browsers = ['PhantomJS']
   if (process.env.SAUCE_USERNAME) {
     browsers = Object.keys(saucelabsBrowsers)
   }
