@@ -4,6 +4,7 @@ datagen = require './mockdata'
 domnode = null
 tag = null
 opts = {src:"/api/users",data:"users"}
+requests = null
 
 if !('remove' in window.Element.prototype)
   window.Element.prototype.remove = -> if @parentNode then @parentNode.removeChild(@) 
@@ -12,8 +13,8 @@ describe 'rest',->
 
   beforeEach ->
     @xhr = sinon.useFakeXMLHttpRequest()
-    @requests = []
-    @xhr.onCreate = (xhr)=> @requests.push(xhr)   
+    requests = []
+    @xhr.onCreate = (xhr)-> requests.push(xhr)   
     domnode = document.createElement('div')
     domnode.appendChild(document.createElement('rest'))
     node = document.body.appendChild(domnode)
@@ -26,11 +27,14 @@ describe 'rest',->
 
   it "should exit",->
     expect(document.querySelector('rest')).to.not.be.null
+      
+  describe "after data loaded",->
     
-  it "should load data",->
-    expect(@requests.length).to.equal(1)
-  
-  it "should have access to data",->
-    @requests[0].respond(200, {"Content-Type": "application/json"},JSON.stringify(datagen(10)))
-    expect(tag.users.length).to.equal(10)
+    beforeEach ->
+      requests[0].respond(200, {"Content-Type": "application/json"},JSON.stringify(datagen(10)))
     
+    it "should have access to data",->
+      expect(tag.users.length).to.equal(10)
+      
+    it "should have a $save method on each element in the collection",->
+      expect(tag.users[0].$save).to.exist
