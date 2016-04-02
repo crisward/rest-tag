@@ -28,7 +28,7 @@ describe 'rest',->
   it "should exit",->
     expect(document.querySelector('rest')).to.not.be.null
       
-  describe "after data loaded",->
+  describe "after collection loaded",->
     
     beforeEach ->
       requests[0].respond(200, {"Content-Type": "application/json"},JSON.stringify(datagen(10)))
@@ -38,3 +38,14 @@ describe 'rest',->
       
     it "should have a $save method on each element in the collection",->
       expect(tag.users[0].$save).to.exist
+      
+  describe "after record loaded",->
+    
+    beforeEach ->
+      requests[0].respond(200, {"Content-Type": "application/json"},JSON.stringify(datagen(1)[0]))
+    
+    it "should have access to data",->
+      expect(tag.users.first_name).to.exist
+      
+    it "should have a $save method on each element in the collection",->
+      expect(tag.users.$save).to.exist
