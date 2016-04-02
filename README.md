@@ -1,5 +1,7 @@
 # Rest Tag
 
+[![Build Status](https://travis-ci.org/crisward/rest-tag.svg?branch=master)](https://travis-ci.org/crisward/rest-tag)
+
 In Development!!
 
 ## Installing
