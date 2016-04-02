@@ -12,14 +12,18 @@ rest
       xhr.onload = => 
         if xhr.status==200
           res = JSON.parse(xhr.responseText)
-          if Array.isArray(res)
-            @[opts.data] = res.map (row)=> 
-              row.$save = @save
-              return row
-          else
-            res.$save = @save
-            return res
+          @[opts.data] = @_addSave(res)
       xhr.send()
       
     @save = =>
+    
+    @_addSave = (data)=>
+      if Array.isArray(data)
+        data.map (row)=> 
+          row.$save = @save
+          return row
+      else
+        data.$save = @save
+        return data
+      
       
