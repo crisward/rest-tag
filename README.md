@@ -1,6 +1,7 @@
 # Rest Tag
 
 [![Build Status](https://travis-ci.org/crisward/rest-tag.svg?branch=master)](https://travis-ci.org/crisward/rest-tag)
+[![Coverage Status](https://coveralls.io/repos/github/crisward/rest-tag/badge.svg?branch=master)](https://coveralls.io/github/crisward/rest-tag?branch=master)
 
 In Development!!
 
