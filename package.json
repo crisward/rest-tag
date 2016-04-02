@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "A rest resource as a riot tag",
   "main": "lib/rest.js",
-  "repository":{ 
-    "type" : "git",
-    "url" : "https://github.com/crisward/rest-tag.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crisward/rest-tag.git"
   },
   "scripts": {
     "test": "karma start",
@@ -60,6 +60,7 @@
     "karma-sinon": "^1.0.4",
     "karma-spec-reporter": "0.0.20",
     "mocha": "^2.0.1",
+    "phantomjs-polyfill": "0.0.2",
     "riot": "^2.3.12",
     "riotify": "^0.1.2",
     "simulant": "^0.1.5",

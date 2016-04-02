@@ -10,6 +10,7 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['browserify','mocha', 'chai','sinon'],
     files: [
+      './node_modules/phantomjs-polyfill/bind-polyfill.js',
       './node_modules/simulant/dist/simulant.js',
       './test/*.coffee'
     ],
